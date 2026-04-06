@@ -1,17 +1,13 @@
 #pragma once
 
-#include "ll/api/schedule/Scheduler.h"
-#include "mc/deps/core/mce/UUID.h"
+#include "ll/api/thread/ServerThreadExecutor.h"
+#include "ll/api/data/CancellableCallback.h"
 
-#include <unordered_map>
+#include <memory>
 
 namespace task {
 
-    using t_scheduler = ll::schedule::GameTickScheduler;
-
-    extern std::shared_ptr<ll::schedule::task::Task<ll::chrono::GameTickClock>> thisTask;
-
-    extern std::optional<ll::schedule::GameTickScheduler> scheduler;
+    extern std::shared_ptr<ll::data::CancellableCallback> thisTask;
 
     void registerTask();
 
