@@ -11,7 +11,10 @@ static std::unique_ptr<PlentyHealing> instance;
 
 PlentyHealing &PlentyHealing::getInstance() { return *instance; }
 
-bool PlentyHealing::load() { return true; }
+bool PlentyHealing::load() {
+    instance = std::make_unique<PlentyHealing>();
+    return true;
+}
 
 bool PlentyHealing::enable() {
     task::registerTask();
@@ -25,4 +28,4 @@ bool PlentyHealing::disable() {
 
 } // namespace plenty_healing
 
-LL_REGISTER_MOD(plenty_healing::PlentyHealing, plenty_healing::instance);
+LL_REGISTER_MOD(plenty_healing::PlentyHealing, *plenty_healing::instance);

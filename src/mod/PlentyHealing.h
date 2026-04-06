@@ -9,9 +9,7 @@ class PlentyHealing {
 public:
     static PlentyHealing &getInstance();
 
-    PlentyHealing(ll::mod::NativeMod &self) : mSelf(self) {};
-
-    [[nodiscard]] ll::mod::NativeMod &getSelf() const { return mSelf; }
+    PlentyHealing() = default;
 
     /// @return True if the mod is loaded successfully.
     bool load();
@@ -21,9 +19,6 @@ public:
 
     /// @return True if the mod is disabled successfully.
     bool disable();
-
-private:
-    ll::mod::NativeMod &mSelf;
 };
 
 } // namespace plenty_healing
